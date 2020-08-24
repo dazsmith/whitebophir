@@ -53,6 +53,7 @@
 			var touch = evt.touches[0];
 			target = document.elementFromPoint(touch.clientX, touch.clientY);
 		}
+		if (target.tagName === "image" && !(target.getAttribute("class") === "DelibleImage")) return;
 		if (erasing && target !== Tools.svg && target !== Tools.drawingArea && inDrawingArea(target)) {
 			msg.id = target.id;
 			Tools.drawAndSend(msg);
