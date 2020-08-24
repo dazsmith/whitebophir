@@ -109,6 +109,21 @@ const Tools = {
 	"Straight line": function (el) {
 		const pathstring = "M" + el.x + " " + el.y + "L" + el.x2 + " " + el.y2;
 		return renderPath(el, pathstring);
+	},
+	/**
+	 * @return {string}
+	 */
+	"Image": function (el) {
+		let imageClass = "IndelibleImage";
+		if (el.delible) imageClass = "DelibleImage";
+		return '<image ' +
+			'id="' + htmlspecialchars(el.id || "i") + '" ' +
+			'class="' + imageClass + '" ' +
+			'href="' + el.txt + '" ' +
+			'x="' + (el.x | 0) + '" ' +
+			'y="' + (el.y | 0) + '" ' +
+			(el.deltax || el.deltay ? ('transform="translate(' + (el.deltax || 0) + ',' + (el.deltay || 0) + ')"') : '') +
+			'/>';
 	}
 };
 

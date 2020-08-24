@@ -53,6 +53,7 @@
 			var touch = evt.touches[0];
 			target = document.elementFromPoint(touch.clientX, touch.clientY);
 		}
+		if (target.tagName === "image" && !(target.getAttribute("class") === "DelibleImage")) return;
 		if (erasing && target !== Tools.svg && target !== Tools.drawingArea && inDrawingArea(target)) {
 			// search for a parent that is a MathElement. If one is found then act on that instead.
 			var a = target;
